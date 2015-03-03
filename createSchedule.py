@@ -9,7 +9,7 @@ import random as rd
 sectionTotal = len(sectionList)
 count = 0
 
-for k in range(20):
+for k in range(pop_size):
     
     student = studentList[k]
     
@@ -71,15 +71,14 @@ for k in range(20):
         
 print(count)
 
-filename = 'C:\Users\Tiawna\Documents\Winter2015\CS290D\scedules.csv'
+filename = 'C:\Users\Tiawna\Documents\GitHub\LordsofChaos\scedules.csv'
 
 
 f = open(filename, 'wt')
 writer = csv.writer(f)
 
 for student in studentList:
-    temp = str(student.sid) + ',' + str(student.section)
-    print temp
+    temp = [student.sid] + student.section
     writer.writerow(temp)
     
 f.close()
