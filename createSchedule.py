@@ -71,11 +71,11 @@ for k in range(pop_size):
         
 print(count)
 
-filename = 'C:\Users\Tiawna\Documents\GitHub\LordsofChaos\scedules.csv'
+filename = 'C:\Users\Tiawna\Documents\GitHub\LordsofChaos\schedules.csv'
 
 
 f = open(filename, 'wt')
-writer = csv.writer(f)
+writer = csv.writer(f, lineterminator = '\n')
 
 for student in studentList:
     temp = [student.sid] + student.section
