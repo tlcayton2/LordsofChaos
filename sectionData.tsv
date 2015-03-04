@@ -1,0 +1,27 @@
+CRN	course	Timeslot	Capacity	Majors
+6148	CHEM 1A	0	354	chem,comp,ee,me
+6155	CHEM 1A	1	354	chem,comp,ee,me
+6163	CHEM 1A	3	354	chem,comp,ee,me
+6171	CHEM 1A	4	354	chem,comp,ee,me
+6189	CHEM 1A	2	306	chem,comp,ee,me
+6197	CHEM 1A	2	354	chem,comp,ee,me
+4929	CH E 1A	9	149	chem
+19422	ENGR 3	3	225	chem,ee,me
+48306	WRIT 1	13,14	25	chem,comp,ee,me,cs
+48314	WRIT 1	1,2	25	chem,comp,ee,me,cs
+48322	WRIT 1	4,5	25	chem,comp,ee,me,cs
+48330	WRIT 1	8,9	25	chem,comp,ee,me,cs
+59634	WRIT 1	11,12	25	chem,comp,ee,me,cs
+59642	WRIT 1	3,4	25	chem,comp,ee,me,cs
+68494	WRIT 1	4,5	25	chem,comp,ee,me,cs
+48371	WRIT 1	13,14	25	chem,comp,ee,me
+48389	WRIT 1	15,16	25	chem,comp,ee,me
+48785	WRIT 1	13,14	25	chem,comp,ee,me
+48793	WRIT 1	13,14	25	chem,comp,ee,me
+48801	WRIT 1	15,16	25	chem,comp,ee,me
+48819	WRIT 1	20,21	25	chem,comp,ee,me
+30007	MATH 3A	6	500	chem,comp,cs,ee,me
+30213	MATH 3A	1	150	chem,comp,cs,ee,me
+73933	MATH 3A	5	100	chem,comp,cs,ee,me
+9191	CMPSC 8	18,19	210	comp,cs
+9316	CMPSC 16	6,7	174	cs
