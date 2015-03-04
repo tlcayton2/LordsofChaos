@@ -10,7 +10,7 @@ sectionTotal = len(sectionList)
 count = 0
 
 for k in range(pop_size):
-    k = 259
+    
     student = studentList[k]
     
     # Shuffle the list of sections to create random enrollment
