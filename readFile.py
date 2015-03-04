@@ -12,7 +12,7 @@ class Section:
 # In[13]:
 
 import csv
-dataFile = 'C:\Users\Tiawna\Downloads\sectionData.tsv'
+dataFile = 'C:\Users\Tiawna\Documents\GitHub\LordsofChaos\sectionData.tsv'
 data = csv.reader(open(dataFile), delimiter = '\t')
 fields = data.next()
 
@@ -45,7 +45,7 @@ studentList = [Student(count, majorsList[count]) for count in range(pop_size)]
 len(studentList)
 studentList[6].major
 
-reqFile = 'C:\Users\Tiawna\Downloads\\requirements.csv'
+reqFile = 'C:\Users\Tiawna\Documents\GitHub\LordsofChaos\\requirements.csv'
 req = csv.reader(open(reqFile,'r'))
 requirements = {}
 for row in req:
