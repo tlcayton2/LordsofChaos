@@ -1,4 +1,5 @@
 # coding: utf-8
+import random as rd
 # In[1]:
 
 class Section:
@@ -37,6 +38,7 @@ meTotal = 83
 
 studentList = []
 majorsList = ['chem']*chemTotal+['comp']*compTotal+['cs']*csTotal+['ee']*eeTotal+['me']*meTotal
+rd.shuffle(majorsList)
 
 #reqList = {} #NEED TO BRING IN THE LIST OF REQUIRED COURSES FOR EACH MAJOR
 

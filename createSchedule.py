@@ -3,11 +3,20 @@
 Created on Tue Mar 03 11:10:35 2015
 
 @author: Tiawna
+
+Run readFile to obtain class objects
 """
 import random as rd
+import csv
 
 sectionTotal = len(sectionList)
 count = 0
+
+
+filename = 'C:\Users\Tiawna\Documents\GitHub\LordsofChaos\\timeSchedule.csv'
+f = open(filename, 'w')
+writer = csv.writer(f, lineterminator = '\n')
+
 
 for k in range(pop_size):
     
@@ -48,7 +57,7 @@ for k in range(pop_size):
                 # Check that the class time is not already taken on the schedule
                 if len(sec.timeSlot) < 3:
                     if tempSched[int(sec.timeSlot)] == 0:
-                        tempSched[int(sec.timeSlot)] = 1
+                        tempSched[int(sec.timeSlot)] = int(sec.crn)
                         sec.cap = str(int(sec.cap)-1)
                         student.section.append(sectionList[j].crn)
                         i+=1
@@ -60,27 +69,33 @@ for k in range(pop_size):
                     firstTimeSlot = sec.timeSlot[:timeDivide]
                     secondTimeSlot = sec.timeSlot[timeDivide+1:]
                     
-                    if (tempSched[int(firstTimeSlot)] == 0 & tempSched[int(secondTimeSlot)] == 0):
-                        tempSched[int(firstTimeSlot)] = 1
-                        tempSched[int(secondTimeSlot)] = 1
+                    if (tempSched[int(firstTimeSlot)] == 0 and tempSched[int(secondTimeSlot)] == 0):
+                        tempSched[int(firstTimeSlot)] = int(sec.crn)
+                        tempSched[int(secondTimeSlot)] = int(sec.crn)
                         sec.cap = str(int(sec.cap)-1)
                         student.section.append(sectionList[j].crn)
                         i+=1
                         j = 0
         j+=1
-        
-print(count)
+    writer.writerow(tempSched)        
+    print(count)
 
 filename = 'C:\Users\Tiawna\Documents\GitHub\LordsofChaos\schedules.csv'
 
 
-f = open(filename, 'wt')
+f = open(filename, 'w')
 writer = csv.writer(f, lineterminator = '\n')
 
 for student in studentList:
-    temp = [student.sid] + student.section
+    temp = [student.sid] + [student.major] + student.section
     writer.writerow(temp)
     
 f.close()
+
+
+
+
+
+
     
 
