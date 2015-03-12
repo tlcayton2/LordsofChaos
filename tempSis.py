@@ -18,6 +18,7 @@ id_infected[patient] = 1
 #current_adjacency = adjacency[:,:,time]
 
 
+<<<<<<< Updated upstream
 def sis_model(current_adjacency, infected, beta, kappa):
     sick_student = np.zeros(355)   
     
@@ -26,6 +27,12 @@ def sis_model(current_adjacency, infected, beta, kappa):
             sick_student[i] += 1
             
     for i, student in enumerate(infected):
+=======
+def sis_model(current_adjacency, id_infected, beta, kappa):
+    sick_student = np.zeros(355) 
+    
+    for i, student in enumerate(id_infected):
+>>>>>>> Stashed changes
         
         if student > 0:
 
