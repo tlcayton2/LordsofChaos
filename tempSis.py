@@ -18,12 +18,17 @@ id_infected[patient] = 1
 #current_adjacency = adjacency[:,:,time]
 
 
-def sis_model(current_adjacency, id_infected, beta, kappa):
-    sick_student = np.zeros(355)    
-    for i, student in enumerate(id_infected):
+def sis_model(current_adjacency, infected, beta, kappa):
+    sick_student = np.zeros(355)   
+    
+    for i, student in enumerate(infected):
+        if student > 0:
+            sick_student[i] += 1
+            
+    for i, student in enumerate(infected):
         
         if student > 0:
-            id_infected[i] += 1
+
             index = np.where(current_adjacency[:,i] == 1)[0]
             index = index.astype(int)
             l = len(index)
@@ -31,10 +36,10 @@ def sis_model(current_adjacency, id_infected, beta, kappa):
             contact = rd.sample(index,new)
             for item in contact:
                 x = rd.random()
-                if x < beta and id_infected[item] == 0:
+                if x < beta and infected[item] == 0:
                     sick_student[item] = 1
                     
-        temp_infected = map(add, id_infected, sick_student)
+    temp_infected = map(add, infected, sick_student)
     return temp_infected
         
 #snapshot = sis_model(current_adjacency, id_infected, beta, kappa)
@@ -47,7 +52,8 @@ def disease_spread(start, stop, adjacency, id_infected):
     for time in range(start, stop+1):
         current_adjacency = adjacency[:,:,time]
         current_id = np.zeros([pop,1])
-        current_id = sis_model(current_adjacency, infection_array[:,j-1], beta, kappa )
+        infected = infection_array[:,j-1]
+        current_id = sis_model(current_adjacency, infected, beta, kappa )
 #        infection_array = np.insert(infection_array, current_id,,1)
         infection_array[:,j] = healthy(current_id)
         j +=1  
