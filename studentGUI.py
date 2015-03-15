@@ -12,7 +12,7 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 import random as rd
-import Tkinter as tk
+import tkinter as tk
 
 adjacency = np.zeros([10, 10])
 adjacency[:, 0] = [ 0, 0, 1 ,1 ,0, 1, 1, 0, 1, 0 ]
@@ -35,50 +35,50 @@ class MainWindow(tk.Frame):
         tk.Frame.__init__(self, *args, **kwargs)
         #self.root = tk.Tk()
         #self.root.wm_title("What happens when you go to class sick")
-        self.label = tk.Label (self, text= "Enter your perm number.")
-        self.label.pack()
+        self.label1 = tk.Label (self, text= "Enter your perm number")
+        self.label1.pack()
+        self.entrytext1 = tk.StringVar()
+        tk.Entry(self, textvariable=self.entrytext1).pack()
 
-        self.entrytext = tk.StringVar()
-        tk.Entry(self, textvariable=self.entrytext).pack()
-
+        self.label2 = tk.Label (self, text= "What day of the week is it?")
+        self.label2.pack()
+        self.entrytext2 = tk.StringVar()
+        tk.Entry(self, textvariable=self.entrytext2).pack()
+        
         self.button = tk.Button(self, text="Run Simulation", 
                                 command=self.simulation)
         self.button.pack()
 
     def simulation(self):
-        input = self.entrytext.get()
+        perm = self.entrytext1.get()
+        day = self.entrytext2.get()
         self.counter += 1
         t = tk.Toplevel(self)
         t.wm_title("WHAT HAPPENS WHEN YOU GO TO CLASS SICK?")
-        l1 = tk.Label(t, text="Student Perm: "+input)
+        l1 = tk.Label(t, text="Student Perm: "+perm)
         l1.pack()
+        l5 = tk.Label(t, text="Student Perm: "+day)
+        l5.pack()
         l2 = tk.Label(t, text="Major: "+ "chemE")
         l2.pack()
         l3 = tk.Label(t, text="Number sick from first class attended: "+ "10")
         l3.pack()
         l4 = tk.Label(t, text="Total number sick in quarter: "+"45")
         l4.pack()
-        #l = tk.Label(t, text=input)
-        #l.pack(side="top", fill="both", expand=True, padx=100, pady=100)
+
         G = nx.from_numpy_matrix(adjacency)
+#        G.node[perm]['shape']='square'
 
-        healthColor = {0: 0.6,
-                       1: 1.0,
-                       2: 1.0,
-                       3: 1.0,
-                       4: 1.0}
+#        nodeList = np.arange(10)
+#        nodeShape = np.array(['o']*10)
+#        nodeShape[perm] = '*'
 
-        hColors = [healthColor.get(student) for student in snapshot]
-        pos = nx.spring_layout(G)
-        nx.draw(G, pos, node_color=hColors)
-#, cmap = plt.get_cmap('YlOrBr')        
-        
+        pos = nx.spring_layout(G)       
+        nx.draw(G, pos, node_color=range(10), cmap = plt.get_cmap('YlOrBr'))
+        #nx.draw(G, pos, nodelist=nodeList, node_shape=nodeShape, node_color=range(10), cmap = plt.get_cmap('YlOrBr'))          
         
         canvas = FigureCanvasTkAgg(plt.figure(1), master=t)
-        #toolbar = NavigationToolbar2TkAgg( canvas, t )
-        #toolbar.update()
 
-        #canvas.show()
         canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
         canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
