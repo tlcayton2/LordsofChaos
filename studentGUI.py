@@ -7,9 +7,12 @@ Created on Sat Mar 14 13:33:33 2015
 
 import networkx as nx
 import numpy as np
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 import random as rd
-import tkinter as tk
+import Tkinter as tk
 
 adjacency = np.zeros([10, 10])
 adjacency[:, 0] = [ 0, 0, 1 ,1 ,0, 1, 1, 0, 1, 0 ]
@@ -68,12 +71,14 @@ class MainWindow(tk.Frame):
         hColors = [healthColor.get(student) for student in snapshot]
         pos = nx.spring_layout(G)
         nx.draw(G, pos, node_color=hColors)
+#, cmap = plt.get_cmap('YlOrBr')        
+        
         
         canvas = FigureCanvasTkAgg(plt.figure(1), master=t)
         #toolbar = NavigationToolbar2TkAgg( canvas, t )
         #toolbar.update()
 
-        canvas.show()
+        #canvas.show()
         canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
         canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
