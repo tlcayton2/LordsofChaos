@@ -122,7 +122,6 @@ def sickCount(infection_array):                   # function to return the # of
         if (x%11) == 10:
             sickperday[i] = timeslot_sum[x]
             i += 1
-            print x
     return sickperday/nSimulations
 # ----------------------------------------------------------------------------
 # (5.) SIS Model
