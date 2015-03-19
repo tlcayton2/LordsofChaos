@@ -2,7 +2,7 @@
 """
 Created on Mon Mar 09 16:06:19 2015
 
-@author: Tiawna, and some other losers
+@author: Tiawna Cayton, Axel Haaker, and Ayme Tomson
 """
 # ----------------------------- Import packages -----------------------------
 import csv                  # to read timeSchedule.csv & make adjacency matrix
@@ -19,7 +19,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 import Tkinter as tk
 
 # ----------------------------- SIS Model Globals ---------------------------
-beta = .05                           # Infection rate
+beta = .005                           # Infection rate
 kappa = .35                         # Mixing parameter
 start = 0
 stop = 10*11*7
